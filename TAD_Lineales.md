@@ -1,4 +1,5 @@
 # TAD LINEALES
+[volver al inicio](https://github.com/rubencq26/ESTRUCTURA-DATOS-1)
 
 ## Introducción
 Los TAD constituyen una forma de generalizar y encapsular los aspectos más importantes de la información que manejamos dentro del programa, olvidando hasta el momento de la implementación como se va a representar esa información dentro del ordenador. 
@@ -27,6 +28,7 @@ La diferencia entre las tres estructuras que se estudiarán vendrá dada por la 
 
 
 ## TAD Lista
+[volver al inicio](https://github.com/rubencq26/ESTRUCTURA-DATOS-1)
 
 **Una lista es un conjunto ordenado de elementos homogéneos en la que no hay restricciones de acceso, la introducción y borrado de elementos puede realizarse en cualquier posición de la misma.** 
   -  Son TAD en los que los elementos están organizados siguiendo un orden secuencial
@@ -146,6 +148,8 @@ bool lista::pertenece(int e)
   Asimismo existen numerosas estructuras relacionadas directamente con las listas y distintas variantes que ofrecen diferentes propiedades de acceso. Es el caso de los TAD pila y cola que se verán a continuación y para los que veremos diversas aplicaciones con detalle. 
 
 ## TAD Pila (STACK)
+[volver al inicio](https://github.com/rubencq26/ESTRUCTURA-DATOS-1)
+
 **Una pila es un tipo especial de lista en la que la inserción y la eliminación de sus elementos se realizan sólo por un extremo que se denomina tope (cima, cabeza o cabecera)**
 
 Es un TAD que se caracteriza por el modo de acceso a sus elementos:
@@ -232,6 +236,8 @@ Cuando un subprograma termina debe retornar a la dirección siguiente a la instr
 
 
 ## TAD Cola (QUEUE)
+[volver al inicio](https://github.com/rubencq26/ESTRUCTURA-DATOS-1)
+
 **Son TADs formados por una secuencia de elementos, caracterizados porque sus elementos se insertan por un extremo y se extraen por el extremo opuesto (el primer elemento en insertarse es el primero en extraerse).**
 ![image](https://github.com/user-attachments/assets/df7dc111-aad0-45ac-96e3-5f0276d1d88c)
 
@@ -292,25 +298,4 @@ bool cola::esvacia (){
 return (fin == -1);
 }
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+[volver al inicio](https://github.com/rubencq26/ESTRUCTURA-DATOS-1)
