@@ -57,4 +57,171 @@ abre el archivo, debiendo ser uno (o varios, uniéndolos con |) de los valores:
 | **ios::app**    | Para añadir únicamente por el final del fichero |
 | **ios::trunc**  | Borra previamente el contenido del fichero   |
 
+Si el tipo de flujo es ifstream u ofstream, existen valores implícitos para el modo, sin necesidad de especificarlos:
+- Para ifstream el modo implícito es ios::in
+- Para ofstream el modo implícito es ios::out
+
+  Se puede hacer uso de los constructores de las clases ifstream, ofstream y fstream. Estos constructores tienen los mismos parámetros que la función open, simplificando de esta forma las operaciones de apertura. Así, son equivalentes:
+```cpp
+ofstream ficheroSalida(“datos”, ios::app | ios::binary);
+
+//Son equivalentes
+ 
+ofstream ficheroSalida;
+ficheroSalida.open(“datos”, ios::app | ios::binary);
+```
+###  Comprobación del estado de un fichero.
+En C++, estos métodos pueden usarse para comprobar el estado actual de un fichero. Devuelven un valor bool:
+```cpp
+fail() //Devuelve verdadero si hubo error lógico o de lectura/escritura en la última operación con el fichero
+
+eof() //Devuelve verdadero si la última operación alcanzó el final de un fichero abierto para lectura
+```
+De forma análoga al uso de fail, las funciones constructoras asignarán un valor de 0 a las variables de flujo asociadas, en caso de producirse error. 
+```cpp
+ofstream salida(“fich”);
+if (!salida) {
+cout << “Se ha producido error al abrir el archivo”;
+//Tratamiento del error
+}
+```
+El método **clear()** permite borrar la información de error asociada a un
+fichero
+```cpp
+  fichero.clear();
+```
+### Cierre de ficheros.
+Los ficheros deben cerrarse una vez que dejen de usarse. Para ello se hace uso del método close:
+```cpp
+ficheroSalida.close();
+```
+### Ficheros de texto
+La lectura y escritura en un fichero de texto es bastante simple, pues puede hacerse uso de los operadores **<<** y **>>**. Pueden llevarse a cabo ciertas traducciones de caracteres, que pueden ser evitadas tratando el fichero en modo binario. 
+
+Como ejemplo, el siguiente código va leyendo líneas de texto (hasta leer la cadena “salir”) y las escribe en un fichero. Luego, recorre dicho fichero para mostrar su contenido por pantalla.
+```cpp
+#include <iostream>
+#include <fstream>
+#include <cstring>
+using namespace std;
+int main() {
+ char cadena[100];
+
+ ofstream salida("prueba.txt");
+ if (!salida.fail())
+ {
+ do {
+ cin >> cadena;
+ salida << cadena << endl;
+ } while (strcmp(cadena, "salir") !=0);
+ salida.close();
+
+ cout << "\n Ahora se muestra el contenido del fichero:\n\n";
+ ifstream entrada("prueba.txt");
+ entrada >> cadena;
+ while (!entrada.eof()) {
+ cout << cadena << endl;
+ entrada >> cadena;
+ }
+ entrada.close();
+ }
+ return 0;
+}
+```
+En este otro ejemplo, se almacenan los datos de la edad y el sueldo en un fichero, y luego se lee dicha información para mostrarla por pantalla.
+```cpp
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main() {
+ int edad;
+ float sueldo;
+ ofstream salida("datos");
+ cout << "Edad: ";
+ cin >> edad;
+ cout << "Sueldo: ";
+ cin >> sueldo;
+ salida << edad << " " << sueldo;
+ salida.close();
+
+ ifstream entrada("datos");
+ entrada >> edad >> sueldo;
+ cout << edad << endl << sueldo;
+ entrada.close();
+ return 0;
+}
+```
+### Ficheros en modo binario.
+Para los ficheros binarios, se dispone de otros métodos más apropiados para trabajar con ellos:
+```cpp
+  read( char* destino, int num );
+```
+Para la lectura desde el fichero, donde destino es un puntero a la zona de memoria donde escribir los datos leídos del flujo, y num qué cantidad de bytes se desea leer.
+
+En el caso de que se alcance el final del archivo antes de haber leído num bytes, simplemente se obtienen los bytes disponibles. 
+```cpp
+  int gcount()
+```
+Mediante el método gcount se puede saber cuántos bytes se han leído realmente en la última operación binaria de entrada.
+```cpp
+  write(char* origen, int num)
+```
+
+Para la escritura en un fichero, donde origen es un puntero a la zona de memoria donde residen los datos y num indica el número de bytes a escribir.
+
+En este ejemplo se escriben en un fichero una serie de fichas de alumnos (nombre y nota) y luego se muestra el contenido grabado:
+```cpp
+#include <iostream>
+#include <fstream>
+using namespace std;
+struct ficha {
+ char nombre[50];
+ float nota;
+};
+int main() {
+ ficha fichas[3] = { {"Ana", 7.2} ,{"Juan", 6.3}, {"Rodolfo",8} };
+ int i;
+ ofstream salida("fichas", ios::binary);
+ if (salida.fail()) {
+ cout << "No se puede abrir el archivo fichas";
+ }
+ else
+ {
+ salida.write((char*) fichas, 3*sizeof(ficha));
+ salida.close() ;
+ for (i=0; i<3; i++) {
+ fichas[i].nota = 0;
+ifstream entrada("fichas", ios::binary);
+ entrada.read((char *) fichas, 3*sizeof(ficha));
+ for (i=0; i<3; i++) {
+ cout << fichas[i].nombre << " " << fichas[i].nota << endl;
+ }
+ entrada.close() ;
+ }
+
+ return 0;
+}
+
+ }
+```
+### Acceso secuencial y directo.
+Lo visto hasta ahora permite un acceso secuencial a un fichero. Pero en C++ los ficheros disponen de un indicador de la posición donde se realizará la siguiente operación de entrada/salida sobre el mismo.
+
+Este indicador de posición avanza automáticamente tras efectuar cada operación. Y para cambiar dicha posición se disponen de los métodos seekg y seekp, según se pretenda realizar una lectura o escritura:
+```cpp
+seekg( streampos pos )
+seekp( streampos pos )
+```
+Siendo streampos el tipo empleado para definir posiciones en un stream.
+
+Estos métodos admiten también su empleo con un desplazamiento (bytes) desde una posición dada:
+```cpp
+seekg( streamoff desplazamiento, seekdir pos )
+seekp( streamoff desplazamiento, seekdir pos )
+```
+Siendo streamoff el tipo para representar un desplazamiento y seekdir el tipo para representar la posición origen:
+
+| **ios::beg** | Principio del archivo |
+| **ios::cur** | Posición actual        |
+| **ios::end** | Final del archivo      |
 
