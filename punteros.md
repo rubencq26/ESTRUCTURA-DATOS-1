@@ -30,6 +30,7 @@ Se puede dar el caso de que varios punteros apunten a la misma variable. Para el
 cliente **TPC1[10];
 ```
 ### Operaciones con punteros
+[volver al inicio](https://github.com/rubencq26/ESTRUCTURA-DATOS-1)
 #### Inicializacion de punteros
 Las variables puntero han de ser inicializadas con direcciones de memoria o con un valor especial que indica una dirección nula, la constante NULL.
 ``` cpp
