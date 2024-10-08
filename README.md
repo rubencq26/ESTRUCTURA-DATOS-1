@@ -16,8 +16,8 @@ Este es un repositorio con contenido de la asignatura de Estructura de datos 1 b
   - [Aritmética de punteros.](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/punteros.md#aritm%C3%A9tica-de-punteros)
 ### 2. [Archivos lógicos y físicos](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/Ficheros.md)
   - [Introduccion a ficheros](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/Ficheros.md#introduccion-a-ficheros)
-### 2.1 [Tipos de archivos](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/Ficheros.md#tipos-de-archivos)
-### 2.2 [Operaciones con archivos](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/Ficheros.md#operaciones-con-archivos)
+#### 2.1 [Tipos de archivos](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/Ficheros.md#tipos-de-archivos)
+#### 2.2 [Operaciones con archivos](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/Ficheros.md#operaciones-con-archivos)
   - [Declaración y apertura de ficheros.](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/Ficheros.md#declaraci%C3%B3n-y-apertura-de-ficheros)
   - [Comprobación del estado de un fichero.](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/Ficheros.md#comprobaci%C3%B3n-del-estado-de-un-fichero)
   - [Cierre de ficheros.](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/Ficheros.md#cierre-de-ficheros)
@@ -26,3 +26,10 @@ Este es un repositorio con contenido de la asignatura de Estructura de datos 1 b
   - [Acceso secuencial y directo.](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/Ficheros.md#acceso-secuencial-y-directo)
   - [Lectura en acceso directo](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/Ficheros.md#lectura-en-acceso-directo)
   - [Escritura en acceso directo.](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/Ficheros.md#escritura-en-acceso-directo)
+### 3. [TAD LINEALES](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TAD_Lineales.md)
+  - [Introducción](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TAD_Lineales.md#introducci%C3%B3n)
+#### 3.1 [TAD Lista](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TAD_Lineales.md#tad-lista)
+#### 3.2 [TAD Pila (STACK)](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TAD_Lineales.md#tad-pila-stack)
+#### 3.3 [TAD Cola (QUEUE)](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TAD_Lineales.md#tad-cola-queue)
+
+    
