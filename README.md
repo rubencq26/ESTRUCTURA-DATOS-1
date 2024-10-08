@@ -1,7 +1,5 @@
 # ESTRUCTURA-DATOS-1
 Este es un repositorio con contenido de la asignatura de Estructura de datos 1 basado exclusivamente en el lenguaje c++
-
-![images](https://github.com/user-attachments/assets/4fc77058-053d-4678-83aa-020cf302cefd)
 ## Contenidos
 ### 1. [Punteros](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/punteros.md)
   - [Concepto de puntero.](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/punteros.md#:~:text=volver%20al%20inicio-,Un%20puntero,-%2C%20hablando%20de%20manera)
