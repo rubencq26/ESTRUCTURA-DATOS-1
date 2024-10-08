@@ -51,12 +51,45 @@ float *PValor = NULL, Valor = 50.6;
 PValor = &Valor;
 float *Copia_de_PValor, Suma;
 
-Copia_de_PValor = PValor; //PValor devuelve su contenido, es decir 2345, que es la direccion de la variable valor
+Copia_de_PValor = PValor; /*PValor devuelve su contenido, es decir 2345,
+que es la direccion de la variable valor*/
 Suma = *PValor + 10;  //Suma contiene 60.6
 ```
 **Nota:** Dependiendo del lugar donde aparece, el símbolo ‘*’ tiene un significado distinto.
 ```cpp
 float Producto = *PValor * *PValor; //Contiene 50.6*50.6=2560.36
 ```
+Para acceder a los campos (métodos) de una estructura (clase) apuntados por una variable puntero se puede utilizar el operador punto **‘.’** .
+```cpp
+Cliente *PCli=NULL, Cli;
+PCli = &Cli;
+(*PCli).Edad = 20;
+cout << (*PCli).Nombre;
+```
+El operador ‘**->**’ simplifica la escritura de programas. Como podemos ver en el siguiente ejemplo, el operador ‘**->**’ nos indica que el nombre del cliente está apuntado y accedido a través el puntero PCli.
+```cpp
+Cliente *PCli=NULL, Cli;
+PCli = &Cli;
+PCli->Edad = 20;
+cout << PCli->Nombre;
+```
+#### Comparacion de punteros
+Una variable puntero puede ser comparada con otra variable puntero o con la constante NULL; aunque todos los operadores relacionales están permitidos, sólo los operadores != y == tienen una verdadera utilidad práctica. 
+![image](https://github.com/user-attachments/assets/48b81b4c-7cfb-4442-9ebd-17368cb8cc7f)
+```cpp
+float *PValor1 = NULL, *PValor2 = NULL, Valor1 = 50.6, Valor2 = 30.2;
+PValor1 = &Valor1;
+PValor2 = &Valor2;
+if (PValor1<PValor2) //Comparación 1ª
+ cout << ”Valor1 está situada en la memoria antes de Valor2”;
+else
+ cout << ”Valor2 está situada en la memoria antes o en la misma
+ posición de Valor1”;
+if (*PValor1 < *PValor2) //Comparación 2ª
+ cout << *PValor2 << ” es mayor que ” << *PValor1;
+else
+ cout << *PValor2 << ” es menor o igual que ” << *PValor1;
+```
+
 
 
