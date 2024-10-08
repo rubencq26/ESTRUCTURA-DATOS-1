@@ -222,6 +222,7 @@ seekp( streamoff desplazamiento, seekdir pos )
 Siendo streamoff el tipo para representar un desplazamiento y seekdir el tipo para representar la posición origen:
 
 | **ios::beg** | Principio del archivo |
-| **ios::cur** | Posición actual        |
-| **ios::end** | Final del archivo      |
+|--------------|-----------------------|
+| **ios::cur** | Posición Actual       |
+| **ios::end** | Final del archivo     |
 
