@@ -90,7 +90,25 @@ if (*PValor1 < *PValor2) //Comparación 2ª
  cout << *PValor2 << ” es mayor que ” << *PValor1;
 else
  cout << *PValor2 << ” es menor o igual que ” << *PValor1;
+
+/*La salida por pantalla del código del ejemplo anterior es el siguiente:
+  Comparación 1ª:
+    Valor1 está situada en la memoria antes de Valor2
+  Comparación 2ª:
+    30.2 es menor o igual que 50.6 *\
 ```
+### Variables dinámicas
+Mediante el uso de punteros se nos permite disponer de nuevas variables en tiempo de ejecución. Las variables dinámicas tienen como identificador la dirección de memoria donde están situadas. El programador tiene la responsabilidad de solicitar la creación y eliminación de variables dinámicas.
+#### Creación de variables dinámicas.
+En el lenguaje C++ se cuenta con el operador **new** para solicitar el uso de memoria dinámica. Posee la capacidad de ejecutar los constructores definidos en la clase del objeto que se instancia. Además permite traspasar valores a los parámetros definidos en los constructores de la clase. 
+```cpp
+//Crea una variable dinámica de tipo float
+float *v = new float;
+```
+![image](https://github.com/user-attachments/assets/0749b6d1-c1c7-4083-805c-226398ac486c)
 
-
-
+```cpp
+//Crea una tabla dinámica de 100 enteros
+int *tabla = new int[100];
+```
+![image](https://github.com/user-attachments/assets/e31ebab9-bc27-4460-8a2d-c27bd98a70fc)
