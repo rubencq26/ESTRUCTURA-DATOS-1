@@ -6,7 +6,7 @@ Este es un repositorio con contenido de la asignatura de Estructura de datos 1 b
   - [Declaracion de variables de tipo puntero](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/punteros.md#:~:text=Declaracion%20de%20una%20variable%20puntero)
   - [Declaracion de tablas de punteros.](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/punteros.md#declaraci%C3%B3n-de-tablas-de-punteros:~:text=Declaraci%C3%B3n%20de%20tablas%20de%20punteros.)
  #### 1.2 [Operaciones con punteros](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/punteros.md#operaciones-con-punteros)
-  - [Inicializacion de punteros](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/punteros.md#declaraci%C3%B3n-de-tablas-de-punteros:~:text=Inicializacion%20de%20punteros)
+  - [Inicializacion de punteros](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/punteros.md#inicializacion-de-punteros)
   - [Asignacion de punteros](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/punteros.md#declaraci%C3%B3n-de-tablas-de-punteros:~:text=Asignacion%20de%20punteros)
   - [Acceso a Punteros](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/punteros.md#declaraci%C3%B3n-de-tablas-de-punteros:~:text=en%20este%20caso-,Acceso%20a%20punteros,-En%20todo%20momento)
   - [Comparacion de punteros](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/punteros.md#declaraci%C3%B3n-de-tablas-de-punteros:~:text=Comparacion%20de%20punteros)
