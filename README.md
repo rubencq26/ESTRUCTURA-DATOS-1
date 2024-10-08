@@ -5,12 +5,12 @@ Este es un repositorio con contenido de la asignatura de Estructura de datos 1
   - Concepto de puntero.
   - Declaracion de variables de tipo puntero
   - Declaracion de tablas de punteros
-1.2 Operaciones con punteros
+ #### 1.2 Operaciones con punteros
   - Inicializacion de punteros
   - Asignacion de punteros
   - Acceso a Punteros
   - Comparacion de punteros
-1.3 Variables Dinámicas
+#### 1.3 Variables Dinámicas
   - Creacion de Variables dinámicas
   - Eliminacion de variables dinámicas
   - Aritmética de punteros.
