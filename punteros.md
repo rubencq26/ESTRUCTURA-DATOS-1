@@ -21,17 +21,42 @@ Se declara una tabla de punteros añadiendo a la declaración de un puntero el t
 float *TPValor[4];
 Polinomio *TP1[10];
 ```
+![image](https://github.com/user-attachments/assets/65dc7ea6-91ef-4a94-9fad-2cb97848eed9)
+
 En el ejemplo, se está declarando una tabla de cuatro punteros a reales (**no cuatro reales**) y una tabla de 10 punteros a objetos Polinomio (**no 10 objetos Polinomio**).
 
 Se puede dar el caso de que varios punteros apunten a la misma variable. Para ello el valor de la dirección de memoria será el mismo para ambos punteros. Tampoco es infrecuente encontrar tablas de punteros de más de un nivel como por ejemplo:
 ``` cpp
 cliente **TPC1[10];
 ```
+### Operaciones con punteros
+#### Inicializacion de punteros
+Las variables puntero han de ser inicializadas con direcciones de memoria o con un valor especial que indica una dirección nula, la constante NULL.
+``` cpp
+float *PValor = NULL;
+Polinomio ** PPolinomio = NULL;
+```
+#### Asignacion de punteros
+Existe el **operador de referencia ‘&’** que nos devuelve la dirección de una variable si éste se coloca justo delante del identificador de la variable. 
+``` cpp
+float *PValor = NULL, Valor = 50.6;
+PValor = &Valor;
+//&Valor devuelve la direccion de Valor, 2345 en este caso
+```
+![image](https://github.com/user-attachments/assets/9444efd7-6ace-440f-9e83-cb1ee94c2c97)
+#### Acceso a punteros
+En todo momento se puede acceder a dos tipos de información: al **propio valor** de la variable puntero (mediante el identificador de la misma) y a la **información a la que apunta** mediante el operador denominado **desreferencia ‘*’**. 
+``` cpp
+float *PValor = NULL, Valor = 50.6;
+PValor = &Valor;
+float *Copia_de_PValor, Suma;
 
-![image](https://github.com/user-attachments/assets/41107689-b774-42e6-b80f-ecbb785c5379)
-
-
-
-
+Copia_de_PValor = PValor; //PValor devuelve su contenido, es decir 2345, que es la direccion de la variable valor
+Suma = *PValor + 10;  //Suma contiene 60.6
+```
+**Nota:** Dependiendo del lugar donde aparece, el símbolo ‘*’ tiene un significado distinto.
+```cpp
+float Producto = *PValor * *PValor; //Contiene 50.6*50.6=2560.36
+```
 
 
