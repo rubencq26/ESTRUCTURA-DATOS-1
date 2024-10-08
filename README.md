@@ -5,3 +5,8 @@ Este es un repositorio con contenido de la asignatura de Estructura de datos 1
 - Concepto de puntero.
 - Declaracion de variables de tipo puntero
 - Declaracion de tablas de punteros
+#### - Operaciones con punteros
+- Inicializacion de punteros
+- Asignacion de punteros
+- Acceso a Punteros
+- Comparacion de punteros
