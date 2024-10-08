@@ -155,4 +155,5 @@ cout << tabla[0]; //escribe 2
 cout << tabla[-1]; //escribe 1
 ```
 Este funcionamiento es **independiente** del tipo de datos de la variable puntero. La agregación de valores a una variable puntero **incrementa** su contenido en el **mismo número** de bytes que ocupa el tipo de la variable puntero. 
+
 [volver al inicio](https://github.com/rubencq26/ESTRUCTURA-DATOS-1)
