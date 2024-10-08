@@ -98,6 +98,7 @@ else
     30.2 es menor o igual que 50.6 */
 ```
 ### Variables dinámicas
+[volver al inicio](https://github.com/rubencq26/ESTRUCTURA-DATOS-1)
 Mediante el uso de punteros se nos permite disponer de nuevas variables en tiempo de ejecución. Las variables dinámicas tienen como identificador la dirección de memoria donde están situadas. El programador tiene la responsabilidad de solicitar la creación y eliminación de variables dinámicas.
 #### Creación de variables dinámicas.
 En el lenguaje C++ se cuenta con el operador **new** para solicitar el uso de memoria dinámica. Posee la capacidad de ejecutar los constructores definidos en la clase del objeto que se instancia. Además permite traspasar valores a los parámetros definidos en los constructores de la clase. 
@@ -154,3 +155,4 @@ cout << tabla[0]; //escribe 2
 cout << tabla[-1]; //escribe 1
 ```
 Este funcionamiento es **independiente** del tipo de datos de la variable puntero. La agregación de valores a una variable puntero **incrementa** su contenido en el **mismo número** de bytes que ocupa el tipo de la variable puntero. 
+[volver al inicio](https://github.com/rubencq26/ESTRUCTURA-DATOS-1)
