@@ -1,4 +1,4 @@
-#Ejercicios de Punteros y Ficheros
+# Ejercicios de Punteros y Ficheros
 ## Ejercicio 1
 Declarar y construir la siguiente tabla dinámica de datos e inicializarla con el valor 0: 
 Destruir la estructura del ejercicio anterior, calculando previamente la suma de los elementos que contiene
