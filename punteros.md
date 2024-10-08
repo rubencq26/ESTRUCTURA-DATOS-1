@@ -15,3 +15,23 @@ La zona de memoria donde apunta un puntero puede ser además otro puntero que ap
 ``` cpp
   cliente **PPC1; //Dos asteriscos
 ```
+### Declaración de tablas de punteros.
+Se declara una tabla de punteros añadiendo a la declaración de un puntero el tamaño de cada dimensión. Hay que tener en cuenta que cuando se declara una tabla de punteros sólo se reserva memoria para la tabla y no para los datos a los que apuntará cada puntero.
+``` cpp
+float *TPValor[4];
+Polinomio *TP1[10];
+```
+En el ejemplo, se está declarando una tabla de cuatro punteros a reales (**no cuatro reales**) y una tabla de 10 punteros a objetos Polinomio (**no 10 objetos Polinomio**).
+
+Se puede dar el caso de que varios punteros apunten a la misma variable. Para ello el valor de la dirección de memoria será el mismo para ambos punteros. Tampoco es infrecuente encontrar tablas de punteros de más de un nivel como por ejemplo:
+``` cpp
+cliente **TPC1[10];
+```
+
+![image](https://github.com/user-attachments/assets/41107689-b774-42e6-b80f-ecbb785c5379)
+
+
+
+
+
+
