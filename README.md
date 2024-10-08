@@ -11,3 +11,7 @@ Cuando se declara un puntero sólo se está reservando una posición de memoria 
   float *valor;
   Polinomio *P;
 ```
+La zona de memoria donde apunta un puntero puede ser además otro puntero que apunte a otra zona de memoria. Esto se conoce como encadenamiento de punteros
+``` cpp
+  cliente **PPC1;
+```
