@@ -1,10 +1,10 @@
 # ESTRUCTURA-DATOS-1
-Este es un repositorio con contenido de la asignatura de Estructura de datos 1
-### Contenidos
+Este es un repositorio con contenido de la asignatura de Estructura de datos 1 basado exclusivamente en el lenguaje c++
+## Contenidos
 ### 1. [Punteros](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/punteros.md)
-  - Concepto de puntero.
-  - Declaracion de variables de tipo puntero
-  - Declaracion de tablas de punteros
+  - [Concepto de puntero.](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/punteros.md#:~:text=volver%20al%20inicio-,Un%20puntero,-%2C%20hablando%20de%20manera)
+  - [Declaracion de variables de tipo puntero](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/punteros.md#:~:text=Declaracion%20de%20una%20variable%20puntero)
+  - [Declaracion de tablas de punteros.](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/punteros.md#declaraci%C3%B3n-de-tablas-de-punteros:~:text=Declaraci%C3%B3n%20de%20tablas%20de%20punteros.)
  #### 1.2 [Operaciones con punteros](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/punteros.md#operaciones-con-punteros)
   - Inicializacion de punteros
   - Asignacion de punteros
