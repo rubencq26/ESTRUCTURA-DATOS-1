@@ -240,7 +240,10 @@ struct TNodo_Lista
  TNodo_Lista *Siguiente; //Puntero al siguiente nodo
 };
 TNodo_Lista *elementos; //Puntero al primer elemento
+```
 
+#### Creacion
+```cpp
 //Creacion Lista
 //La lista no contiene ningún nodo.
 TNodo_Lista *elementos=NULL; 
@@ -254,6 +257,255 @@ if (elementos!=NULL)
  elementos->Anterior=NULL;
 }
 ```
-    
+#### Comprobación si está vacía
+```cpp
+  return elementos==NULL;
+// Para una lista simple o doblemente enlazada (circular o no),
+// devolverá true si la lista no contiene nodos
+
+return elementos->Siguiente==NULL;
+// Para una lista con nodo cabecera, simple o doblemente enlazada
+// devolverá true si la lista no contiene nodos 
+```
+#### Ir al elemento siguiente
+```cpp
+elementos->Datos=Valor; //Asigna un valor al primer elemento de la lista
+elementos->Siguiente->Datos=Valor; //Asigna un valor al segundo elemento de la lista.
+
+//También se podría haber hecho utilizando un puntero auxiliar:
+TNodo_Lista *Nodo_Aux;
+Nodo_Aux=elementos->Siguiente;
+Nodo_Aux->Datos=Valor; //Asigna un valor al segundo elemento.
+```
+![image](https://github.com/user-attachments/assets/a410ec7f-f873-49f6-bfc6-e67f6d254402)
+
+#### Ir al último elemento
+![image](https://github.com/user-attachments/assets/ccb7531a-8d74-42d7-9b38-6cdbab1303ca)
+
+```cpp
+TNodo_Lista *Nodo_Ultimo=elementos;
+//Si hay nodos busca el nodo que tenga NULL
+if (elementos!=NULL)
+ while (Nodo_Ultimo->Siguiente!=NULL)
+ Nodo_Ultimo=Nodo_Ultimo->Siguiente; //Siguiente nodo
+```
+
+#### Ir al último elemento en una lista circular simplemente enlazada
+
+![image](https://github.com/user-attachments/assets/c4e0ff05-fcfd-4627-af72-13ccdc50c3c7)
+
+```cpp
+TNodo_Lista *Nodo_Ultimo=elementos; //Apunta al primer nodo
+//Si hay nodos busca el nodo que tenga el puntero elementos
+if (elementos!=NULL)
+ while (Nodo_Ultimo->Siguiente!=elementos)
+ Nodo_Ultimo=Nodo_Ultimo->Siguiente; //Siguiente nodo
+```
+####  Ir al último elemento en una lista circular doblemente enlazada. 
+
+![image](https://github.com/user-attachments/assets/e274ad7f-1fcb-4896-a640-9f571023e407)
+
+```cpp
+TNodo_Lista *Nodo_Ultimo=elementos; //Apunta al primer nodo
+//Si hay nodos accede directamente al último nodo
+if (elementos!=NULL)
+ Nodo_Ultimo=elementos->Anterior; //último nodo
+```
+#### Recorrer una lista
+```cpp
+//Ejemplo de búsqueda en una lista simple o doblemente enlazada.
+TNodo_Lista *Nodo_Aux=elementos;
+bool encontrado=false;
+//condición de fin de lista y de parada
+while (Nodo_Aux!=NULL && !encontrado)
+ if (Nodo_Aux->Datos!=valor_a_buscar)
+ Nodo_Aux=Nodo_Aux->Siguiente;
+ else
+ encontrado=true;
 
 
+
+//Ejemplo de búsqueda en una lista circular simple o doblemente enlazada,
+//buscando el nodo que está situado en la posición que indica la variable i. 
+ TNodo_Lista *Nodo_Aux=elementos;
+int v=1;
+if (Nodo_Aux!=NULL) {
+ //Condición de fin de lista y de parada
+ while (Nodo_Aux->Siguiente!=elementos && v<i)
+ {
+ Nodo_Aux=Nodo_Aux->Siguiente;
+ v++;
+ }
+ if (v==i)
+ Nodo_Aux->Datos=x;
+}      
+```
+#### Destrucción
+```cpp
+TNodo_Lista *Nodo_Borr, *Nodo_Sig;
+Nodo_Borr=elementos;
+while (Nodo_Borr!=NULL)
+{
+ Nodo_Sig=Nodo_Borr->Siguiente;
+ delete Nodo_Borr;
+ Nodo_Borr=Nodo_Sig;
+}
+elementos=NULL;
+```
+### Implementación del TAD Lista con nodos enlazados. 
+
+Tadlista.h
+```cpp
+// FICHERO TADLista.h
+#include <iostream>
+using namespace std;
+struct TNodo_Lista
+{
+ float Datos; // Dato a almacenar en cada nodo
+ TNodo_Lista *Siguiente; // Puntero al siguiente nodo
+};
+class lista
+{
+ TNodo_Lista *elementos; // Puntero al primer nodo de la lista.
+ int n; // nº de nodos que tiene la lista
+ // Devuelve un puntero al elemento anterior al elemento i
+ // Devuelve NULL si es el primero
+ TNodo_Lista *Anterior(int i);
+ public:
+ lista(); // constructor de la clase
+ ~lista(); // destructor de la clase
+ lista(float e);
+ bool esvacia();
+ int longitud();
+ void anadirIzq(float e);
+ void anadirDch(float e);
+ void eliminarIzq();
+ void eliminarDch();
+ float observarIzq();
+ float observarDch();
+ void concatenar(lista l);
+ bool pertenece(float e);
+ void insertar(int i, float e);
+ void eliminar(int i);
+ void modificar(int i, float e);
+ float observar(int i);
+ int posicion(float e);
+};
+```
+
+Tadlist.cpp
+```cpp
+//FICHERO TADLista.cpp
+#include "TADLista.h"
+lista::lista()
+{
+ elementos=NULL;
+ n=0;
+}
+lista::~lista()
+{
+ TNodo_Lista *Nodo_Borr=elementos,*Nodo_Sig;
+ while (Nodo_Borr!=NULL) {
+ Nodo_Sig=Nodo_Borr->Siguiente;
+ delete Nodo_Borr;
+ Nodo_Borr=Nodo_Sig;
+ }
+ elementos=NULL;
+ n=0;
+}
+TNodo_Lista *lista::Anterior(int i)
+{
+ TNodo_Lista *Nodo_Aux=elementos,*Nodo_Ant=NULL;
+ int v=1;
+ if (Nodo_Aux!=NULL)
+ while (Nodo_Aux!=NULL && v<i) {
+ Nodo_Ant=Nodo_Aux;
+ Nodo_Aux=Nodo_Aux->Siguiente;
+ v++;
+ }
+ return Nodo_Ant;
+};
+void lista::insertar(int i, float e)
+{
+ TNodo_Lista *Nodo_Aux=new TNodo_Lista, *Nodo_Ant;
+ if (Nodo_Aux!=NULL) {
+ Nodo_Aux->Datos=e;
+ Nodo_Aux->Siguiente=NULL;
+ Nodo_Ant= Anterior(i);
+ if (Nodo_Ant==NULL) {
+ Nodo_Aux->Siguiente=elementos;
+ elementos=Nodo_Aux;
+ }
+ else {
+Nodo_Aux->Siguiente=Nodo_Ant->Siguiente;
+ Nodo_Ant->Siguiente=Nodo_Aux;
+ }
+ n++;
+ }
+}
+void lista::eliminar(int i)
+{
+ TNodo_Lista *Nodo_Ant,*Nodo_Aux;
+ Nodo_Ant=Anterior(i);
+ if (Nodo_Ant==NULL) {
+ Nodo_Aux=elementos;
+ elementos=Nodo_Aux->Siguiente;
+ }
+ else {
+ Nodo_Aux=Nodo_Ant->Siguiente;
+ Nodo_Ant->Siguiente=Nodo_Aux->Siguiente;
+ }
+ delete Nodo_Aux;
+ n--;
+}
+
+void lista::modificar(int i, float e)
+{
+ TNodo_Lista *Nodo_Ant=Anterior(i),*Nodo_Aux;
+ if (Nodo_Ant==NULL)
+ Nodo_Aux=elementos;
+ else
+ Nodo_Aux=Nodo_Ant->Siguiente;
+ Nodo_Aux->Datos=e;
+}
+float lista::observar(int i)
+{
+ TNodo_Lista *Nodo_Ant=Anterior(i),*Nodo_Aux;
+ if (Nodo_Ant==NULL)
+ Nodo_Aux=elementos;
+ else
+ Nodo_Aux=Nodo_Ant->Siguiente;
+ return Nodo_Aux->Datos;
+}
+bool lista::esvacia ()
+{
+ return (n == 0);
+}
+int lista::longitud ()
+{
+ return n;
+}
+int lista::posicion(float e)
+{
+ TNodo_Lista *Nodo_Aux=elementos;
+ bool encontrado=false;
+ int v=1;
+ while (Nodo_Aux!=NULL && !encontrado)
+ if (Nodo_Aux->Datos!=e)
+ {
+ Nodo_Aux=Nodo_Aux->Siguiente;
+ v++;
+ }
+ else
+ encontrado=true;
+
+ return (encontrado?v:-1);
+}
+lista::lista(float e)
+{
+ elementos=new TNodo_Lista;
+ elementos->Datos=e;
+ elementos->Siguiente=NULL;
+ n=1;
+}
+```
