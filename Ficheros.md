@@ -51,8 +51,10 @@ pudiendo incluir un especificador de camino. Y modo determina cómo se
 abre el archivo, debiendo ser uno (o varios, uniéndolos con |) de los valores:
 
 | **ios::in**     | Apertura para lectura                        |
+|-----------------|----------------------------------------------|
 | **ios::out**    | Apertura para escritura                      |
 | **ios::binary** | Apertura en modo binario (no en modo texto)  |
 | **ios::app**    | Para añadir únicamente por el final del fichero |
 | **ios::trunc**  | Borra previamente el contenido del fichero   |
+
 
