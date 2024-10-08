@@ -1,4 +1,5 @@
 # Archivos lógicos y físicos
+[volver al inicio](https://github.com/rubencq26/ESTRUCTURA-DATOS-1)
 
 ## Introduccion a ficheros
 - El significado más genérico de archivo o fichero es de flujo o sucesión de elementos que entran o salen del ordenador.
@@ -18,6 +19,8 @@ Un fichero podría definirse como un elemento de almacenamiento de datos sobre u
 correspondiente fichero físico.
 
 ## Tipos de archivos
+[volver al inicio](https://github.com/rubencq26/ESTRUCTURA-DATOS-1)
+
 ###En cuanto a su modo de acceso.
 El modo de acceso a los archivos depende principalmente del soporte empleado para los mismos y del modo físico en el que se ha organizado su información.
   - **Acceso secuencial**: se accederá a cada elemento del archivo uno tras otro en el mismo orden en el que se situaron.
@@ -28,6 +31,8 @@ El modo de acceso a los archivos depende principalmente del soporte empleado par
   - **Ficheros binarios**
 
 ## Operaciones con archivos
+[volver al inicio](https://github.com/rubencq26/ESTRUCTURA-DATOS-1)
+
 ### Declaración y apertura de ficheros.
 Las funciones específicas en C++ para el manejo de archivos parten de
 vincular, en su apertura, dicho archivo a un flujo (stream). Hay tres tipos de
@@ -226,3 +231,152 @@ Siendo streamoff el tipo para representar un desplazamiento y seekdir el tipo pa
 | **ios::cur** | Posición Actual       |
 | **ios::end** | Final del archivo     |
 
+Para consultar la posición actual en un fichero se usan los métodos **tellg** y **tellp**:
+```cpp
+streampos tellg()
+streampos tellp()
+```
+En el ejemplo siguiente se muestra cómo saber el número de bytes de un fichero. El razonamiento seguido es abrir el fichero en modo lectura, situar el puntero de entrada en la última posición del fichero (desplazamiento 0 desde el final) y mostrar el valor proporcionado por **tellg**:
+```cpp
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main() {
+ ifstream fich("fichas", ios::binary);
+ if (!fich.fail()) {
+ fich.seekg(0, ios::end);
+ cout << fich.tellg();
+ fich.close();
+ }
+ else
+ cout << "No se encuentra el fichero";
+ return 0;
+}
+```
+### Lectura en acceso directo
+Al igual que en el acceso secuencial, las operaciones de lectura en acceso directo consisten en copiar la información contenida en un elemento del fichero sobre una variable del programa localizada en memoria principal, pero en este caso indicaremos necesariamente la posición del elemento del fichero desde la que deseamos realizar la lectura. 
+
+Para ello actuamos del siguiente modo:
+-  Uso de **seekg** para posicionarnos.
+-   Uso de **read** para leer
+
+### Escritura en acceso directo.
+De igual modo que en el acceso secuencial, se trata de copiar la información contenida en una variable del programa sobre un elemento del fichero, pero en este caso debemos indicar la posición del fichero en la que deseamos situar el elemento.
+
+Para ello actuamos del siguiente modo:
+- Uso de **seekp** para posicionarnos
+- Uso de **write** para escribir.
+
+Es importante destacar que la escritura en una posición del fichero no inserta, sino que sobrescribe el contenido en esa posición.
+
+Veamos el siguiente ejemplo:
+```cpp
+#include <iostream>
+#include <fstream>
+#include <conio.h>
+using namespace std;
+#define MAX_STR 30
+typedef char cadena[MAX_STR]; //define tipo string
+//-----Definición de la Clase coche-------------
+class Coche
+{
+ long NumKm;
+ cadena Matricula;
+public:
+ void setMat(cadena mat){strcpy(Matricula,mat);};
+ void setNumKm(long num){NumKm=num;};
+ char *getMat(){return Matricula;};
+ long getNumKm(){return NumKm;};
+};
+int main()
+{
+ Coche C;
+ char op;
+ int indice;
+ cadena mat;
+ long Km;
+ fstream f;
+ f.open("datos1.dat",ios::in|ios::out|ios::binary);
+//vemos si datos1.dat existía previamente
+ if (f.fail())
+ //el fichero no existe, debo crearlo
+ {
+ f.close();
+ f.clear();
+ f.open("datos1.dat",ios::out|ios::binary); //se crea el fichero
+ f.close();
+ f.clear();
+ f.open("datos1.dat",ios::in|ios::out|ios::binary);
+ //ya abrimos de nuevo el fichero tras crearlo
+ }
+ if (f)
+ {
+ do{
+ system ("cls");
+ cout <<"Elija operación\n";
+ cout <<"1-Ver Matrícula y Km de un Coche\n";
+ cout <<"2-Asignar Matrícula y Km a un Coche\n";
+ cout <<"3- Salir\n";
+ op=getch();
+ switch(op)
+ {
+ case '1':
+ cout <<"Introduzca Nº vehículo a consultar\n";
+ cin >>indice;
+if (indice>0)
+ {
+ f.seekg(sizeof(Coche)*(indice-1),ios::beg);
+ if (((int)f.tellg()!=(sizeof(Coche)*(indice-1)))||(f.fail()))
+ {
+ cout<<"Se produce Error\n";
+ f.clear();
+ }
+ else
+ {
+ f.read((char *) &C,sizeof(Coche));
+ if (!f.fail())
+ cout << "Matrícula: " << C.getMat()<< " Km: " << C.getNumKm();
+ else
+ {
+ cout<<"Se produce error\n";
+ f.clear();
+ }
+ }
+ getch();
+ }
+break;
+ case '2':
+ cout <<"Introduzca matrícula\n";
+cin >>mat;
+C.setMat(mat);
+cout <<"Introduzca sus Km\n";
+cin >>Km;
+C.setNumKm(Km);
+cout <<"Introduzca el Nro de Vehículo\n";
+cin>>indice;
+if (indice>0)
+ {
+ f.seekp(sizeof(Coche)*(indice-1),ios::beg);
+if ((int)f.tellp()!=sizeof(Coche)*(indice-1))
+ {
+ cout<< "Se produce Error\n";
+ }
+ else
+ {
+ f.write((char *)&C,sizeof(Coche));
+ }
+ }
+break;
+ case '3': break;
+ default : cout <<"Opción Incorrecta";
+ }
+ }while (op!='3');
+ f.close();
+}
+else
+ cout<<"fichero no abierto";
+system("pause");
+return 0;
+}
+```
+[volver al inicio](https://github.com/rubencq26/ESTRUCTURA-DATOS-1)
