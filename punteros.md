@@ -95,7 +95,7 @@ else
   Comparación 1ª:
     Valor1 está situada en la memoria antes de Valor2
   Comparación 2ª:
-    30.2 es menor o igual que 50.6 *\
+    30.2 es menor o igual que 50.6 */
 ```
 ### Variables dinámicas
 Mediante el uso de punteros se nos permite disponer de nuevas variables en tiempo de ejecución. Las variables dinámicas tienen como identificador la dirección de memoria donde están situadas. El programador tiene la responsabilidad de solicitar la creación y eliminación de variables dinámicas.
@@ -110,5 +110,47 @@ float *v = new float;
 ```cpp
 //Crea una tabla dinámica de 100 enteros
 int *tabla = new int[100];
+for (int i=0; i<100; i++){
+ tabla[i] = i; /*No es necesario inicializar solo es para mostrar como dar
+valores a la tabla*/
+}
 ```
-![image](https://github.com/user-attachments/assets/e31ebab9-bc27-4460-8a2d-c27bd98a70fc)
+![image](https://github.com/user-attachments/assets/8fbeddfe-dec5-4127-9f34-4c710b13806b)
+Todas las funciones y operadores que reservan memoria, devuelven o bien la dirección de memoria reservada o bien la constante **NULL** para indicar que el S.O. no ha encontrado ninguna zona de memoria con el tamaño que ha sido solicitado.
+```cpp
+cliente *C1 = new cliente;
+/*Crea un objeto cliente en memoria dinámica
+y ejecuta el constructor por defecto*/
+cliente *C2 = new cliente(“Antonio”, 28343334);
+/*Crea un objeto cliente en memoria dinámica
+y ejecuta el constructor con dos parámetros,
+nombre y dni*/
+```
+![image](https://github.com/user-attachments/assets/d151ecc5-fcd1-4f1e-be6f-d31d1ac960f3)
+
+#### Eliminacion de variables dinamicas
+C++ permite la liberación de memoria dinámica con el operador **delete**. Posee la capacidad de ejecutar el destructor definido en la clase del objeto que se destruye. 
+```cpp
+delete v;
+delete [] tabla;
+// para liberar un array creado dinámicamente con new
+// invoca al destructor de cada elemento del array
+```
+#### Aritmética de punteros
+Como toda variable numérica, las variables de tipo puntero permiten realizar ciertas operaciones aritméticas sobre la dirección de memoria que almacenan. Las operaciones normales son la suma y resta de posiciones de memoria. 
+```cpp
+  int *tabla = new int[100];
+for (int i=0; i<100; i++)
+ tabla[i] = i;
+tabla++; //contiene 14672 el siguiente elemento
+cout << *tabla; //escribe 1
+tabla++; //contiene 14674 el tercer elemento de la tabla
+cout << *tabla; //escribe 2
+```
+![image](https://github.com/user-attachments/assets/f3abc070-21e6-4367-b999-b6b34eaf7ba2)
+El estado anterior de la tabla es tal que el primer elemento de la tabla es el valor 2 y no el 0 y además el número de elementos de la tabla es de **98** elementos y no de **100**. 
+```cpp
+cout << tabla[0]; //escribe 2
+cout << tabla[-1]; //escribe 1
+```
+Este funcionamiento es **independiente** del tipo de datos de la variable puntero. La agregación de valores a una variable puntero **incrementa** su contenido en el **mismo número** de bytes que ocupa el tipo de la variable puntero. 
