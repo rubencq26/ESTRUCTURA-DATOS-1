@@ -1,6 +1,7 @@
 ## Punteros
 
 [volver al inicio](https://github.com/rubencq26/ESTRUCTURA-DATOS-1)
+
 Un puntero, hablando de manera aproximada, es una variable de tipo entero que contiene un valor numérico que es en realidad la dirección de memoria donde está situada otra variable del programa.
 
 ### Declaracion de una variable puntero
