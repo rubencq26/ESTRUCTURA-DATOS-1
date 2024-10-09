@@ -31,5 +31,8 @@ Este es un repositorio con contenido de la asignatura de Estructura de datos 1 b
 #### 3.1 [TAD Lista](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TAD_Lineales.md#tad-lista)
 #### 3.2 [TAD Pila (STACK)](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TAD_Lineales.md#tad-pila-stack)
 #### 3.3 [TAD Cola (QUEUE)](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TAD_Lineales.md#tad-cola-queue)
-
+### [TAD Lineales Dinámicos](https://github.com/rubencq26/ESTRUCTURA-DATOS-1)
+#### [TAD Lista Dinámica](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TAD-Lineales_Dinamicos.md#implementaci%C3%B3n-din%C3%A1mica-del-tad-lista)
+ - [Implementacion con tabla dinámica](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TAD-Lineales_Dinamicos.md#implementacion-con-tabla-din%C3%A1mica)
+ - [Implementacion con nodos enlazados](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TAD-Lineales_Dinamicos.md#implementacion-con-nodos-enlazados)
     
