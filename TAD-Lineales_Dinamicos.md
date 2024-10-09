@@ -1,4 +1,5 @@
 # TAD Lineales Dinámicos
+[volver al inicio](https://github.com/rubencq26/ESTRUCTURA-DATOS-1)
 
 ## Implementación dinámica del TAD Lista. 
 El uso de tablas presenta ventajas ya vistas, pero también presentan desventajas:
@@ -194,6 +195,8 @@ bool lista::pertenece(float e)
 }
 ```
 ### Implementacion con nodos enlazados
+[volver al inicio](https://github.com/rubencq26/ESTRUCTURA-DATOS-1)
+
 En vez de tener toda la información (nodos de la lista) agrupada en una misma zona de memoria (como las tablas estáticas y dinámicas), ahora se pretende dispersar cada elemento o nodo de la lista por cualquier zona de la memoria.
 
 ![image](https://github.com/user-attachments/assets/eb2abfaa-e63c-48e8-8727-8cc654433c85)
@@ -509,3 +512,5 @@ lista::lista(float e)
  n=1;
 }
 ```
+
+[volver al inicio](https://github.com/rubencq26/ESTRUCTURA-DATOS-1)
