@@ -31,8 +31,17 @@ Este es un repositorio con contenido de la asignatura de Estructura de datos 1 b
 #### 3.1 [TAD Lista](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TAD_Lineales.md#tad-lista)
 #### 3.2 [TAD Pila (STACK)](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TAD_Lineales.md#tad-pila-stack)
 #### 3.3 [TAD Cola (QUEUE)](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TAD_Lineales.md#tad-cola-queue)
-### [TAD Lineales Dinámicos](https://github.com/rubencq26/ESTRUCTURA-DATOS-1)
-#### [TAD Lista Dinámica](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TAD-Lineales_Dinamicos.md#implementaci%C3%B3n-din%C3%A1mica-del-tad-lista)
+### 4. [TAD Lineales Dinámicos](https://github.com/rubencq26/ESTRUCTURA-DATOS-1)
+#### 4.1 [TAD Lista Dinámica](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TAD-Lineales_Dinamicos.md#implementaci%C3%B3n-din%C3%A1mica-del-tad-lista)
  - [Implementacion con tabla dinámica](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TAD-Lineales_Dinamicos.md#implementacion-con-tabla-din%C3%A1mica)
  - [Implementacion con nodos enlazados](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TAD-Lineales_Dinamicos.md#implementacion-con-nodos-enlazados)
-    
+### 5. [TAD Genéricos](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TADGenericos.md)
+#### 5.1 [Introduccion a la Generalidad](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TADGenericos.md#51-introducci%C3%B3n-a-la-generalidad)
+#### 5.2 [Funciones y Tipos Genericos: Plantillas](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TADGenericos.md#52-funciones-y-tipos-gen%C3%A9ricos-plantillas)
+- 5.2.1 [Sintaxis TADs Genericod](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TADGenericos.md#521-sintaxis)
+- [Ejemplos](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TADGenericos.md#ejemplos)
+#### 5.3 [Sobrecarga de Plantilas de Funciones](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TADGenericos.md#sobrecarga-de-plantillas-de-funciones)
+#### 5.4 [Especializacion de Funciones Genericas](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TADGenericos.md#54-especializaci%C3%B3n-de-funciones-gen%C3%A9ricas)
+#### 5.5 [TAD Lista Generica](https://github.com/rubencq26/ESTRUCTURA-DATOS-1/blob/main/TADGenericos.md#55-tad-lista-gen%C3%A9rica)
+
+
